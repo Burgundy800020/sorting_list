@@ -1,5 +1,6 @@
 package edu.cmu.cs.cs214.rec04;
 
+
 /**
  * AbstractIntList -- a list of integers.
  *
@@ -51,7 +52,7 @@ public abstract class AbstractIntList implements IntegerList {
      * @param num an integer to be removed from the list, if present
      * @return true if an element was removed as a result of this call
      */
-    public abstract boolean remove(int num);
+    public abstract boolean remove(int i);
 
     /**
      * Removes from the list all of its elements that are contained in the
@@ -61,7 +62,18 @@ public abstract class AbstractIntList implements IntegerList {
      * the list
      * @return true if the list changed as a result of the call
      */
-    public abstract boolean removeAll(IntegerList list);
+    public boolean removeAll(IntegerList list){
+        {
+            boolean success = false;
+    
+            for (int i = 0; i < list.size(); i++)
+            {
+                success |= this.remove(list.get(i));
+            }
+    
+            return success;
+        }
+    }
 
     /**
      * Returns the number of elements in this list. If this list contains
