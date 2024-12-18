@@ -1,3 +1,4 @@
+import { AbstractIntList } from './AbstractIntList.js'
 import { SortedIntList } from './hidden/SortedIntListLibrary.js'
 
 /**
@@ -10,8 +11,22 @@ import { SortedIntList } from './hidden/SortedIntListLibrary.js'
  *
  */
 
-class InheritanceSortedIntList {
-  // Write your implementation below with API documentation
+class InheritanceSortedIntList extends SortedIntList{
+  private count : number = 0;
+  
+  constructor(){
+    super();
+    this.count = 0;
+  }
+
+  public add (num: number): boolean{
+    this.count++;
+    return super.add(num);
+  }
+  
+  public getTotalAdded() : number{
+    return this.count;
+  }
 
 }
 

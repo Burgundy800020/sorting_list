@@ -58,7 +58,15 @@ abstract class AbstractIntList implements IntegerList {
      * the list
      * @return true if the list changed as a result of the call
      */
-  abstract removeAll (list: IntegerList): boolean
+  public removeAll (list: IntegerList): boolean{
+   let success = false
+
+   for (let i = 0; i < list.size(); i++) {
+     success ||= this.remove(list.get(i))
+   }
+
+   return success
+ }
 
   /**
      * Returns the number of elements in this list. If this list contains
